@@ -381,7 +381,9 @@ li {
   padding-left: 0.5em;
   padding-bottom: 0.8125em;
 }
-
+.section {
+    list-style-type: none;
+}
 .definition > li:last-child span,
 h3,
 .meaning,
