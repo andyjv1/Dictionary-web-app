@@ -36,22 +36,22 @@ const Found = ({ black, font, definition }) => {
             } else if (x.partOfSpeech === "noun") {
 
                 x.definitions.map(x => wordsDefinition.noun.push(x))
-              x.synonyms.map(x => wordsSynonyms.noun.push(x))
+                x.synonyms.map(x => wordsSynonyms.noun.push(x))
             } else if (x.partOfSpeech === "adjective") {
                 x.definitions.map(x => wordsDefinition.adjective.push(x))
-              x.synonyms.map(x => wordsSynonyms.adjective.push(x))
+                x.synonyms.map(x => wordsSynonyms.adjective.push(x))
             } else if (x.partOfSpeech === "adverb") {
                 x.definitions.map(x => wordsDefinition.adverb.push(x))
-              x.synonyms.map(x => wordsSynonyms.adverb.push(x))
+                x.synonyms.map(x => wordsSynonyms.adverb.push(x))
             } else if (x.partOfSpeech === "preposition") {
                 x.definitions.map(x => wordsDefinition.preposition.push(x))
-               x.synonyms.map(x => wordsSynonyms.preposition.push(x))
+                x.synonyms.map(x => wordsSynonyms.preposition.push(x))
             } else if (x.partOfSpeech === "interjection") {
                 x.definitions.map(x => wordsDefinition.interjection.push(x))
                 x.synonyms.map(x => wordsSynonyms.interjection.push(x))
             } else {
                 x.definitions.map(x => wordsDefinition.conjunction.push(x))
-               x.synonyms.map(x => wordsSynonyms.conjunction.push(x))
+                x.synonyms.map(x => wordsSynonyms.conjunction.push(x))
             }
         })
     });
@@ -64,7 +64,7 @@ const Found = ({ black, font, definition }) => {
     const content = (
         Object.values(wordsDefinition).map((x, index) =>
             x.length !== 0 ?
-                <>
+                <li key={index} className='section'>
                     <div className="word-class">
                         <h2 style={{
                             color: black ? "#FFFFFF" : "#2D2D2D",
@@ -85,15 +85,15 @@ const Found = ({ black, font, definition }) => {
                             </li>
                         )}
                     </ul>
-                    
-                    {Object.values(wordsSynonyms)[index].length !== 0 ? <h3 className="synonyms">Synonyms 
+
+                    {Object.values(wordsSynonyms)[index].length !== 0 ? <h3 className="synonyms">Synonyms
                         {
                             Object.values(wordsSynonyms)[index].map((y, index) => {
-                                return <span>{(index ? ', ' : '') + y}</span>
+                                return <span key={index}>{(index ? ', ' : '') + y}</span>
                             })
-                        }    
+                        }
                     </h3> : null}
-                </>
+                </li>
                 :
                 null
         )
@@ -124,7 +124,7 @@ const Found = ({ black, font, definition }) => {
                     <a href={url}
                         style={{ color: black ? "#FFFFFF" : "#2D2D2D" }}
                     >{url}</a>
-                    <Window/>
+                    <Window />
 
                 </div>
             </div>
