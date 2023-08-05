@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ReactComponent as Search } from "../images/icon-search.svg";
 import { useParams } from 'react-router-dom';
 
-const SearchBar = ({ black, setError, setDefinition }) => {
+const SearchBar = ({ black, setError, setDefinition, setLoading }) => {
     const [name, setName] = useState("")
     const [empty, setEmpty] = useState(false)
     const navigate = useNavigate();
@@ -22,15 +22,31 @@ const SearchBar = ({ black, setError, setDefinition }) => {
             const response = await fetch(API_LINK);
             const text = await response.json();
             setDefinition(text)
+            setLoading(false)
+
         } catch (ex) {
             setError(true);
+            setLoading(false)
         }
-    }, [id, name, setDefinition, setError]);
+    }, [id, name, setDefinition, setError, setLoading]);
+
+// todo here set a global variable (boolean IAmSearchingForAWord) this is to use in all the components
+            // which are going to be affected in a way by the loading which could be displaying a spinner or disableling 
+            // the input field for the search (those are examples)
+// finally {
+        // todo here reset the global variable (state redux) to false
+    // }
+// Line 21 set global variable
+// Line 30 add finally with the code sent above
+// https://loading.io/css/
+// https://lottiefiles.com/
+// https://github.com/zalog/placeholder-loading
 
     useEffect(() => {
         if (id !== undefined) {
             fetchAdvice()
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -40,6 +56,7 @@ const SearchBar = ({ black, setError, setDefinition }) => {
     }, [name]);
 
     function handleSubmit(e) {
+        setLoading(true)
         if (name === "") {
             e.preventDefault();
             setEmpty(true)

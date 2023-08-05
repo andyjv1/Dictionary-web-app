@@ -40,8 +40,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution]([https://your-solution-url.com](https://github.com/andyjv1/Dictionary-web-app.git))
-- Live Site URL: [Live]([https://your-live-site-url.com](https://majestic-marigold-08b93d.netlify.app/))
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
 
