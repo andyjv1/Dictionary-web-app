@@ -30,18 +30,6 @@ const SearchBar = ({ black, setError, setDefinition, setLoading }) => {
         }
     }, [id, name, setDefinition, setError, setLoading]);
 
-// todo here set a global variable (boolean IAmSearchingForAWord) this is to use in all the components
-            // which are going to be affected in a way by the loading which could be displaying a spinner or disableling 
-            // the input field for the search (those are examples)
-// finally {
-        // todo here reset the global variable (state redux) to false
-    // }
-// Line 21 set global variable
-// Line 30 add finally with the code sent above
-// https://loading.io/css/
-// https://lottiefiles.com/
-// https://github.com/zalog/placeholder-loading
-
     useEffect(() => {
         if (id !== undefined) {
             fetchAdvice()
